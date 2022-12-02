@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+import jsonfield
 
 class Task(models.Model):
     STATUS_CHOICES = [
@@ -15,6 +14,7 @@ class Task(models.Model):
 
     message = models.CharField(max_length=300, blank=True, null=True)
     screenshot = models.ImageField(upload_to="media/", null=True, blank=True)
+    data = jsonfield.JSONField()
 
     def __str__(self):
         return self.name
@@ -38,3 +38,4 @@ class Step(models.Model):
     )
     order = models.IntegerField(blank=True)
     target = models.CharField(max_length=100, blank=True, null=True)
+    status = models.BooleanField(null=True, blank=True)
