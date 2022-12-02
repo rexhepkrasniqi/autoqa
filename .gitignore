@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 session_cntx
 autoqa/static/media/*
+autoqa/app/migrations/*
